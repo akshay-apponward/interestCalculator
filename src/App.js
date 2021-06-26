@@ -150,7 +150,7 @@ const App = () => {
               </div>
             </div>
             <div className="row">
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Calculate Interest" />
             </div>
           </form>
           <div className="row">
