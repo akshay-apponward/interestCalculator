@@ -7,7 +7,7 @@ const App = () => {
     interest: "",
     duration: "",
     durationType: 0,
-    totalInterest: ''
+    totalInterest: "",
   });
   const [errors, setErrors] = useState({});
   const clearValue = (event) => {
@@ -16,15 +16,15 @@ const App = () => {
       interest: "",
       duration: "",
       durationType: 0,
-      totalInterest: ''
-    })
-  }
+      totalInterest: "",
+    });
+  };
   const handleChange = (event) => {
     setValues({
       ...values,
-      [event.target.name]: event.target.value && parseInt(event.target.value)
+      [event.target.name]: event.target.value && parseInt(event.target.value),
     });
-    console.log('vlaues', values);
+    console.log("vlaues", values);
   };
 
   const handleFormSubmit = (event) => {
@@ -44,22 +44,27 @@ const App = () => {
     setErrors(errors);
     if (Object.keys(errors).length === 0) {
       console.log("submit value", values);
-      if(values.durationType === 0){
+      if (values.durationType === 0) {
         setValues({
           ...values,
-          totalInterest: (values.totalAmount * values.interest * values.duration) / 100
+          totalInterest:
+            (values.totalAmount * values.interest * values.duration) / 100,
         });
       }
-      if(values.durationType === 1){
+      if (values.durationType === 1) {
         setValues({
           ...values,
-          totalInterest: (values.totalAmount * values.interest * values.duration) / (12 * 100)
+          totalInterest:
+            (values.totalAmount * values.interest * values.duration) /
+            (12 * 100),
         });
       }
-      if(values.durationType === 2){
+      if (values.durationType === 2) {
         setValues({
           ...values,
-          totalInterest: (values.totalAmount * values.interest * values.duration) / (365 * 100)
+          totalInterest:
+            (values.totalAmount * values.interest * values.duration) /
+            (365 * 100),
         });
       }
     }
@@ -145,19 +150,22 @@ const App = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col-25">
-                <label htmlFor="duration">Total Interest</label>
-              </div>
-              <div className="col-75 result">
-                <label htmlFor="duration">{values.totalInterest}</label>
-              </div>
-            </div>
-            <div className="row">
               <input type="submit" value="Submit" />
-              
             </div>
           </form>
-          <button className="clear" onClick={clearValue}>Reset Value</button>
+          <div className="row">
+            <button className="clear" onClick={clearValue}>
+              Reset Value
+            </button>
+          </div>
+          <div className="row res">
+            <div className="col-25">
+              <label htmlFor="duration">Total Interest</label>
+            </div>
+            <div className="col-75 result">
+              <label htmlFor="duration">{values.totalInterest}</label>
+            </div>
+          </div>
         </div>
       </header>
     </div>

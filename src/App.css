@@ -67,16 +67,19 @@ input[type="submit"] {
   margin-left: 25%;
   margin-top: 3%;
 }
+.row.res {
+  margin-top: 18px;
+}
 .clear {
+  float: right;
+  margin-top: -39px;
+  margin-right: 41%;
   background-color: #b60505;
   color: white;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  float: left;
-  margin-left: 25%;
-  margin-top: 3%;
 }
 
 input[type="submit"]:hover {
